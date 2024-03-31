@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@angular/core": "^17.3.1",
+    "@angular/forms": "^17.3.1",
+    "@angular/router": "^17.3.1"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^17.0.1",
+    "postcss-import": "^16.1.0",
+    "postcss-loader": "^8.1.1",
+    "postcss-scss": "^4.0.9",
+    "tailwindcss": "^3.4.3"
+  }
+}
