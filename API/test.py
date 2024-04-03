@@ -83,12 +83,14 @@ def get_all_users():
 # Get user by Username
 @app.route('/users/<string:Username>', methods=['GET'])
 def get_user(Username):
-    cursor.execute('SELECT * FROM Users WHERE Username = ?', Username)
+    cursor.execute('SELECT * FROM Users WHERE Username = ?', (Username,))
     user = cursor.fetchone()
-    user_dict = dict(zip([column[0] for column in cursor.description], user))
-    json_result = json.dumps(user_dict)
     if not user:
         return jsonify({'error': 'User not found'}), 404
+
+    user_dict = dict(zip([column[0] for column in cursor.description], user))
+    json_result = json.dumps(user_dict)
+    
     return jsonify({'user': json_result}), 200
 
 # Update user information by UserID
