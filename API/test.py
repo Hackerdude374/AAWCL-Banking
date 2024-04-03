@@ -3,6 +3,7 @@ from flask_cors import CORS
 import pyodbc
 import json
 
+
 app = Flask(__name__)
 CORS(app)
 token = "dlashjdlkjsahkdljhasldkhsakdlaskhdjalshj";
@@ -27,7 +28,7 @@ def create_user():
     cursor.execute('SELECT * FROM Users WHERE Username = ?', Username)
     user = cursor.fetchone()
     if user:
-        return jsonify({'message': 'User Existed'}), 400
+        return jsonify({'message': 'User Existed Already'}), 400
 
     if not all(key in data for key in ('Username', 'PasswordHash')):
         return jsonify({'error': 'Missing required fields'}), 400
@@ -64,7 +65,7 @@ def login():
         return jsonify({'message': 'Missing username or password'}), 400
 
     if user.PasswordHash == Password:
-        return jsonify({'Token': token}), 200
+        return jsonify({'message': 'Login successful', 'Token': token}), 200
     else:
         return jsonify({'message': 'Invalid username or password'}), 401
 
