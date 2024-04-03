@@ -109,7 +109,7 @@ def update_user(UserID):
     return jsonify({'message': 'User updated successfully'}), 200
 
 # Update user username and password by UserID
-@app.route('/users/<int:UserID>', methods=['PUT'])
+@app.route('/users/<int:UserID>/password', methods=['PUT'])
 def update_user_password(UserID):
     cursor.execute('SELECT * FROM Users WHERE UserID = ?', UserID)
     user = cursor.fetchone()
@@ -117,7 +117,7 @@ def update_user_password(UserID):
         return jsonify({'error': 'User not found'}), 404
     data = request.json
     cursor.execute(
-        'UPDATE Users SET Username = ?, PasswordHash = ?',
+        'UPDATE Users SET Username = ?, PasswordHash = ? WHERE UserID = ?',
         data.get('Username'), data.get('PasswordHash'), UserID)
     conn.commit()
     return jsonify({'message': 'User updated successfully'}), 200
