@@ -1,1 +1,67 @@
-<p>login works!</p>
+<div class="parent">
+  <div class="top-div">
+    <p class="AAWCL">AAWCL</p>
+  </div>
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="container">
+    <div class="SignUp">
+      <button class="sign">
+        <a href="http://localhost:4200/signup"> SignUp </a>
+      </button>
+    </div>
+    <div class="login-box">
+      <h2>Login</h2>
+      <form action="#">
+        <div class="input-box">
+          <input
+            type="email"
+            [(ngModel)]="loginObj.userId"
+            name="userId"
+            required
+          />
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            [(ngModel)]="loginObj.Password"
+            name="Password"
+            required
+          />
+          <label>Password</label>
+        </div>
+        <button type="button" class="btn" (click)="onLogin()">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
