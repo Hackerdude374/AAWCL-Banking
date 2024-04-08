@@ -39,3 +39,202 @@
 	position: relative;
 	margin-bottom: 20px;
 }
+
+.input-box input {
+	width: 98%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	outline: none;
+}
+
+.input-box label {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	color: #888;
+	font-size: 12px;
+	pointer-events: none;
+	transition: top 0.3s, left 0.3s, font-size 0.3s;
+}
+
+.input-box input:focus+label,
+.input-box input:valid+label {
+	top: -10px;
+	left: 5px;
+	font-size: 10px;
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.btn:hover {
+	background-color: #0056b3;
+}
+
+.sign {
+	display: inline-block;
+	background-color: #007bff;
+	/* Button background color */
+	color: #fff;
+	/* Button text color */
+	padding: 10px 20px;
+	/* Button padding */
+	text-decoration: none;
+	/* Remove underline from the link */
+	border: none;
+	/* Remove button border */
+	border-radius: 5px;
+	/* Apply border radius */
+	transition: background-color 0.3s ease;
+	/* Smooth transition for background color */
+}
+
+.sign:hover {
+	background-color: #0056b3;
+	/* Change background color on hover */
+}
+
+.sign a {
+	color: inherit;
+	/* Inherit text color from parent button */
+	text-decoration: none;
+	/* Remove underline from the link */
+}
+
+.sign a:hover {
+	color: inherit;
+	/* Inherit text color from parent button on hover */
+	text-decoration: none;
+	/* Remove underline from the link on hover */
+}
+
+
+/* main container */
+
+.loader {
+    text-align: center;
+}
+.loader span {
+    display: inline-block;
+    
+   
+	  margin: 280px 40px 54px  -34px;
+   background:url("https://cdn.theatlantic.com/assets/media/img/posts/Screen%20Shot%202013-10-08%20at%209.13.38%20AM.png");
+  background-size: contain;
+    
+    -webkit-animation: loader 10s infinite  linear;
+    -moz-animation: loader 10s infinite  linear;
+}
+.loader span:nth-child(5n+5) {
+
+    -webkit-animation-delay: 1.3s;
+    -moz-animation-delay: 1.3s;
+}
+.loader span:nth-child(3n+2) {
+
+    -webkit-animation-delay: 1.5s;
+    -moz-animation-delay: 1.5s;
+}
+.loader span:nth-child(2n+5) {
+
+    -webkit-animation-delay: 1.7s;
+    -moz-animation-delay: 1.7s;
+}
+
+.loader span:nth-child(3n+10) {
+
+    -webkit-animation-delay: 2.7s;
+    -moz-animation-delay: 2.7s;
+}
+.loader span:nth-child(7n+2) {
+
+    -webkit-animation-delay: 3.5s;
+    -moz-animation-delay: 3.5s;
+}
+.loader span:nth-child(4n+5) {
+
+    -webkit-animation-delay: 5.5s;
+    -moz-animation-delay: 5.5s;
+}
+.loader span:nth-child(3n+7) {
+
+    -webkit-animation-delay: 8s;
+    -moz-animation-delay: 8s;
+}
+@-webkit-keyframes loader {
+  0% {
+    width: 80px;
+    height: 80px;
+    opacity: 1;
+
+	-webkit-transform: translate(0, 0px) rotateZ(0deg);
+  }
+  75% {
+    width: 80px;
+    height: 80px;
+    opacity: 1;
+
+	-webkit-transform: translate(100px, 600px) rotateZ(270deg); 
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+
+	-webkit-transform: translate(150px, 800px) rotateZ(360deg);
+  }
+}
+@-moz-keyframes loader {
+  0% {
+    width: 80px;
+    height: 80px;
+    opacity: 1;
+    
+	-webkit-transform: translate(0, 0px) rotateZ(0deg);
+  }
+  75% {
+    width: 80px;
+    height: 80px;
+    opacity: 1;
+   
+	-webkit-transform: translate(100px, 600px) rotateZ(270deg); 
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    
+	-webkit-transform: translate(150px, 800px) rotateZ(360deg);
+  }
+}
+
+.top-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: green; 
+  padding: 10px; 
+}
+
+.AAWCL {
+  font-size: 30px; 
+  font-weight: bold; 
+  color: black; 
+  font-family: 'Roboto', sans-serif;
+  text-align: center; 
+  background-color: green;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  height: 100%; 
+}

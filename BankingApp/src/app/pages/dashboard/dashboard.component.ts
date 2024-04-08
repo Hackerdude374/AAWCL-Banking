@@ -4,10 +4,9 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  standalone: true,
-  imports: [],
+  moduleId: module.id,
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
   
