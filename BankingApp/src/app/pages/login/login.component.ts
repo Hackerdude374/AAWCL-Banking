@@ -16,7 +16,7 @@ export class LoginComponent {
     this.loginObj = new Login();
   }
   onLogin() {
-    this.http.post('', this.loginObj).subscribe(
+    this.http.post('http://127.0.0.1:5000/login', this.loginObj).subscribe(
     response => {
       console.log('Login successful:', response);
     },
@@ -29,9 +29,9 @@ export class LoginComponent {
 
 export class Login {
   userId: string;
-  password: string;
+ Password: string;
   constructor(){
     this.userId = '';
-    this.password = '';
+    this.Password = '';
   }
 }
