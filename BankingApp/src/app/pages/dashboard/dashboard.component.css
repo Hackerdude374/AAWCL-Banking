@@ -1,0 +1,45 @@
+/* dashboard.component.css */
+
+/* Styling for main container */
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  /* Styling for sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #ccc;
+  }
+  
+  .sidebar a:hover {
+    color: #fff;
+  }
+  
+  /* Styling for main content */
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
