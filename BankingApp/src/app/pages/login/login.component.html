@@ -1,1 +1,58 @@
-<p>login works!</p>
+<div class="parent">
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  
+    <div class="container">
+      <div class="SignUp">
+        <button class="sign">
+          <a href="http://localhost:4200/signup"> SignUp </a>
+        </button>
+      </div>
+      <div class="login-box">
+        <h2>Login</h2>
+        <form #login = "ngForm" (ngSubmit)="onLogin(login.value)" >
+          <div class="input-box">
+            <input
+              type="text"
+              name= "username"
+              ngModel placeholder="username">
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              name= "password"
+              ngModel placeholder="password">
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>

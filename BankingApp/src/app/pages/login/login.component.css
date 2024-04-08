@@ -1,0 +1,41 @@
+.parent {
+	display: flex;
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	line-height: 1.7;
+	color: #ffeba7;
+	background-color: #1f2029;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+.container {
+  position:absolute;
+	width: 100%;
+	max-width: 500px;
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+	box-shadow: 0 0 10px red(0, 0, 0, 0.1);
+	border: 2px solid red;
+}
+
+.login-box {
+	text-align: center;
+}
+
+.login-box h2 {
+	margin-bottom: 18px;
+	color: #333;
+}
+
+.input-box {
+	position: relative;
+	margin-bottom: 20px;
+}

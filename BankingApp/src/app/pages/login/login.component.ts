@@ -1,37 +1,30 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
 
-  loginObj: Login;
-  constructor(private http: HttpClient) {
-    this.loginObj = new Login();
+  constructor(private authService: AuthService, private router:Router) {
   }
-  onLogin() {
-    this.http.post('', this.loginObj).subscribe(
+  onLogin(data: any) {
+    const username = data.username;
+    const password = data.password;
+    this.authService.login(username, password).subscribe(
     response => {
       console.log('Login successful:', response);
+      this.router.navigateByUrl('/dashboard');
     },
     error => {
       console.error('Login failed: ', error);
-    }
-    );
-  }
-}
-
-export class Login {
-  userId: string;
-  password: string;
-  constructor(){
-    this.userId = '';
-    this.password = '';
+    });
   }
 }
