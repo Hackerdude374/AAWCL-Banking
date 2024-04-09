@@ -11,7 +11,7 @@ export class SignupService {
   
     constructor(private http: HttpClient) { }
   
-    signup(username: string, password: string): Observable<any> {
-      return this.http.post<any>(`${this.apiUrl}/signup`, { Username: username, PasswordHash: password });
+    signup(username: string, password: string, email:string, name: string, address:string,phone:string): Observable<any> {
+      return this.http.post<any>(`${this.apiUrl}/signup`, { Username: username, PasswordHash: password, Email: email, FullName: name, CurrAddr: address, PhoneNumber: phone});
     }
   }

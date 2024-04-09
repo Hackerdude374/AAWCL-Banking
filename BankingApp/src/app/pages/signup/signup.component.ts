@@ -18,8 +18,11 @@ export class SignupComponent {
   onSignup(data: any) {
     const username = data.username;
     const password = data.password;
-
-    this.loginService.signup(username, password).subscribe(
+    const email = data.email;
+    const name = data.name;
+    const address = data.address;
+    const phone= data.phone;
+    this.loginService.signup(username, password,email,name,address,phone).subscribe(
     response => {
       console.log('Signup successful:', response);
       this.router.navigateByUrl('/login');
