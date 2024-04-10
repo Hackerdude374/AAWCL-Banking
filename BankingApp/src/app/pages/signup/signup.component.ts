@@ -18,7 +18,10 @@ export class SignupComponent {
   onSignup(data: any) {
     const username = data.username;
     const password = data.password;
-
+    const email = data.email;
+    const name = data.name;
+    const address = data.address;
+    const phone= data.phone;
     this.loginService.signup(username, password).subscribe(
     response => {
       console.log('Signup successful:', response);

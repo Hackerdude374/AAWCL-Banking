@@ -1,7 +1,4 @@
 <div class="parent">
-  <div class="top-div">
-    <p class="AAWCL">AAWCL</p>
-  </div>
   <div class="loader">
     <span></span>
     <span></span>
@@ -41,26 +38,14 @@
     </div>
     <div class="login-box">
       <h2>Login</h2>
-      <form action="#">
+      <form #login="ngForm" (ngSubmit)="onLogin(login.value)">
         <div class="input-box">
-          <input
-            type="email"
-            [(ngModel)]="loginObj.userId"
-            name="userId"
-            required
-          />
-          <label>Email</label>
+          <input type="text" name="username" ngModel placeholder="username" />
         </div>
         <div class="input-box">
-          <input
-            type="password"
-            [(ngModel)]="loginObj.Password"
-            name="Password"
-            required
-          />
-          <label>Password</label>
+          <input type="text" name="password" ngModel placeholder="password" />
         </div>
-        <button type="button" class="btn" (click)="onLogin()">Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   </div>
