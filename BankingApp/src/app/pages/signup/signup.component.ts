@@ -22,7 +22,7 @@ export class SignupComponent {
     const name = data.name;
     const address = data.address;
     const phone= data.phone;
-    this.loginService.signup(username, password,email,name,address,phone).subscribe(
+    this.loginService.signup(username, password).subscribe(
     response => {
       console.log('Signup successful:', response);
       this.router.navigateByUrl('/login');
