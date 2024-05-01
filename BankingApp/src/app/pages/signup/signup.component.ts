@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SignupService } from '../service/signup.service';
+import { SignupService } from '../../service/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,13 +13,17 @@ import { SignupService } from '../service/signup.service';
 
 export class SignupComponent {
 
-  constructor(private loginService: SignupService, private router:Router) {
+  constructor(private signupService: SignupService, private router: Router) {
   }
   onSignup(data: any) {
     const username = data.username;
     const password = data.password;
+    const email = data.Email;
+    const name =  data.FullName;
+    const address = data.CurrAddr;
+    const phone = data.PhoneNumber;
 
-    this.loginService.signup(username, password).subscribe(
+    this.signupService.signup(username, password, email, name, address, phone).subscribe(
     response => {
       console.log('Signup successful:', response);
       this.router.navigateByUrl('/login');
