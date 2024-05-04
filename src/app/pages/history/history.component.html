@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Transaction History</h2>
+    <div class="form-group">
+      <label for="accountSelect">Select Account:</label>
+      <select class="form-control" id="accountSelect" [(ngModel)]="account_number" (change)="loadLogs(account_number)">
+        <option *ngFor="let account of accounts" [value]="account.AccountNumber">{{ account.AccountNumber }}</option>
+      </select>
+    </div>
+    <div *ngIf="logs.length > 0">
+      <h3>Logs for Account Number: {{ account_number }}</h3>
+      <ul>
+        <li *ngFor="let log of logs">
+          <p>Log ID: {{ log.LogID }}</p>
+          <p>Description: {{ log.LogDesc }}</p>
+          <p>Amount: ${{ log.Amount }}</p>
+          <p>Date: {{ log.LogTime }}</p>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="logs.length === 0">
+      <p>No history found for selected account.</p>
+    </div>
+  </div>
