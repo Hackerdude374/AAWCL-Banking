@@ -1,4 +1,4 @@
-**Installation Guide**
+<!-- **Installation Guide**
 
 This guide will walk you through the installation process for Node.js, Angular, SQL Server Management Studio (SSMS), and provide additional tutorials and resources for each.
 
@@ -19,4 +19,23 @@ npm install -g @angular/cli
 ### Additional Resources
 - **Youtube Video**: Watch [this video](https://www.youtube.com/watch?v=9ZD7cKIaxdM) for additional insights.
 
-Now, you're all set up with Node.js, Angular, and SQL Server Management Studio! Happy coding!
+Now, you're all set up with Node.js, Angular, and SQL Server Management Studio! Happy coding! -->
+
+# Banking App
+
+## Frontend
+
+To run the frontend, navigate to the `BankingApp` directory and use the following command:
+
+```bash
+cd BankingApp
+npm start
+```
+
+### Backend
+To run the backend API, navigate to the API directory and use the following command:
+
+```bash
+cd API
+python API.py
+```
