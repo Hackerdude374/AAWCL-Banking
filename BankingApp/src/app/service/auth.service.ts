@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { JwtService } from './jwt.service';
 
 @Injectable({
@@ -16,6 +16,13 @@ export class AuthService {
         return this.http.post<any>(`${this.apiUrl}/login`, { Username: username, PasswordHash: password }).pipe(
           tap(response=> {
             this.jwtService.storeToken(response.access_token);
+          }),
+          catchError(error => {
+            let errorMessage = 'An unknown error occurred';
+            if (error.error && error.error.error) {
+              errorMessage = error.error.error;
+            }
+            return throwError(errorMessage);
           })
         );
     }

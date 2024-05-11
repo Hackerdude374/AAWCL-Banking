@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './history.component.html',
   styleUrl: './history.component.css'
 })
+
 export class HistoryComponent {
   logs: Log[] = [];
   accounts: Account[] = [];

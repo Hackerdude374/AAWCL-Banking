@@ -1,30 +1,36 @@
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">Make Transaction</div>
-          <div class="card-body">
-            <form #transactionForm="ngForm" (ngSubmit)="makeTransactions(transactionForm)">
-              <div class="mb-3">
-                <label for="senderAccountNumber" class="form-label">Sender's Account Number</label>
-                <input type="number" class="form-control" id="senderAccountNumber" name="senderAccountNumber" [(ngModel)]="senderAccountNumber" required>
-                <div *ngIf="transactionForm.controls['senderAccountNumber'].errors?.['required']" class="text-danger">Sender's Account Number is required.</div>
-              </div>
-              <div class="mb-3">
-                <label for="recipientAccountNumber" class="form-label">Recipient's Account Number</label>
-                <input type="number" class="form-control" id="recipientAccountNumber" name="recipientAccountNumber" [(ngModel)]="recipientAccountNumber" required>
-                <div *ngIf="transactionForm.controls['senderAccountNumber'].errors?.['required']" class="text-danger">Recipient's Account Number is required.</div>
-              </div>
-              <div class="mb-3">
-                <label for="amount" class="form-label">Amount</label>
-                <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="amount" required>
-                <div *ngIf="transactionForm.controls['senderAccountNumber'].errors?.['required']" class="text-danger">Amount is required.</div>
 
-              </div>
-              <button type="submit" class="btn btn-primary">Transact</button>
-            </form>
-          </div>
+
+<a href="http://localhost:4200/dashboard">
+  <img
+    src="https://static.vecteezy.com/system/resources/previews/023/904/057/original/left-arrow-icon-undo-icon-arrow-back-icon-arrow-sign-and-symbol-vector.jpg"
+    alt="backward-arrow"
+    class="back-arrow"
+  />
+</a>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Make Transaction</div>
+        <div class="card-body">
+          <form #transaction="ngForm" (ngSubmit)="makeTransactions(transaction.value)">
+            <div class="input-box">
+              <select name="sender_account_number" ngModel required>
+                <option value="" disabled selected>Select Sender Account</option>
+                <option *ngFor="let acc of accounts" [value]="acc.AccountNumber">{{ acc.AccountNumber }}</option>
+              </select>
+            </div>
+            <div class="input-box">
+              <input type="text" name="recipient_account_number" ngModel placeholder="Receiver" required>
+            </div>
+            <div class="input-box">
+              <input type="text" name="amount" ngModel placeholder="$0.00" required>
+            </div>
+            <button type="submit">Transact</button>
+          </form>
+          <div *ngIf="transactionStatus">{{ transactionStatus }}</div>
         </div>
       </div>
     </div>
-  </div>  
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<a href="http://localhost:4200/dashboard">
+    <img
+      src="https://static.vecteezy.com/system/resources/previews/023/904/057/original/left-arrow-icon-undo-icon-arrow-back-icon-arrow-sign-and-symbol-vector.jpg"
+      alt="backward-arrow"
+      class="back-arrow"
+    />
+  </a>
+<ng-container If="response; else noAccounts">
+    <ul>
+    <div *ngFor="let account of accounts">
+        <div>Account Number: {{ account.AccountNumber }}</div>
+        <div>Account Type: {{ account.AccountType }}</div>
+        <div>Account Status: {{ account.AccStatus }}</div>
+        <div>
+            <label>
+            <input type="radio" name="{{account.AccountNumber}}_status" value="OnHold" [(ngModel)]="account.newStatus"> OnHold
+            </label>
+            <label>
+            <input type="radio" name="{{account.AccountNumber}}_status" value="Activated" [(ngModel)]="account.newStatus"> Activated
+            </label>
+            <button (click)="changeAccountStatus(account)">Save</button>
+        </div>
+    </div>
+    </ul>
+</ng-container>
+<ng-template #noAccounts>
+  <div class="no-account-message">Please open an account first.</div>
+</ng-template>

@@ -1,5 +1,10 @@
 <div class="parent">
   <div class="container">
+    <div class="Login">
+      <button class="sign">
+        <a href="http://localhost:4200/login"> Login </a>
+      </button>
+    </div>
     <div>
       <h2 class="word">Signup</h2>
     </div>
@@ -29,5 +34,6 @@
       </div>
       <button type="submit">Signup</button>
     </form>
+    <div *ngIf="signupStatus">{{ signupStatus }}</div>
   </div>
 </div>

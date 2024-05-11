@@ -7,9 +7,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <!-- Other navigation items here -->
 
-        <!-- Logout button -->
         <li class="nav-item">
           <a class="nav-link" href="#" (click)="onLogout()">Logout</a>
         </li>
@@ -26,8 +24,11 @@
       <aside class="sidebar">
         <ul>
             <li><a href="/dashboard" class="active">Dashboard</a></li>
+            <li><a href="/cardmanagement">Cards</a></li>
             <li><a href="/transaction">Transactions</a></li>
             <li><a href="/history">Logs</a></li>
+            <li><a href="/account">Account Management</a></li>
+            <li><a href="/open">Open Card/Account</a></li>
         </ul>
     </aside>
       <div class="col-md-9">
@@ -43,7 +44,7 @@
               </ul>
             </ng-container>
             <ng-template #noAccounts>
-              <div class="no-account-message">Please create an account first.</div>
+              <div class="no-account-message">Please open an account first.</div>
             </ng-template>
           </section>
         </div>
