@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +8,8 @@ export class JwtService {
   constructor() { }
 
   // Store JWT token in local storage
-  storeToken(token: string): void {
-    localStorage.setItem('token', token);
+  storeToken(access_token: string): void {
+    localStorage.setItem('token', access_token);
   }
 
   // Retrieve JWT token from local storage
@@ -21,10 +20,5 @@ export class JwtService {
   // Remove JWT token from local storage
   removeToken(): void {
     localStorage.removeItem('token');
-  }
-
-  // Decode JWT token
-  decodeToken(token: string): any {
-    return jwtDecode(token);
   }
 }

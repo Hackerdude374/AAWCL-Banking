@@ -1,58 +1,54 @@
-<div class="dashboard-container">
+<title>Webleb Banking Dashboard</title>
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-      <ul>
-          <li><a href="#" class="active">Dashboard</a></li>
-          <li><a href="#">Transactions</a></li>
-          <li><a href="#">Payments</a></li>
-          <li><a href="#">Cards</a></li>
-          <li><a href="#">Credit</a></li>
-          <li><a href="#">Accounts</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="onLogout()">Logout</a>
+        </li>
       </ul>
-  </aside>
-
-  <!-- Main Content -->
-  <main class="main-content">
-      <!-- Welcome Back Message -->
-      <div class="welcome-back">Welcome back, Goofy!</div>
-
-      <!-- Account Overview -->
-      <section class="account-overview">
-          <div class="card">
-              <div class="card-header">Account Balance</div>
-              <div class="card-body">
-                  <p>$ 9,543.12</p>
-                  <p><small>Up $149.32 Today, Sep 25</small></p>
-              </div>
-          </div>
-          <div class="card">
-              <div class="card-header">Money In Last 30 Days</div>
-              <div class="card-body">
-                  <p>$ 0.00</p>
-                  <p><small>No incoming transactions yet</small></p>
-              </div>
-          </div>
-      </section>
-
-      <!-- Credit Cards Section -->
-      <section class="credit-cards-section">
-          <div class="card">
-              <div class="card-header">Credit Cards</div>
-              <div class="card-body">
-                  <!-- Dynamic list of credit cards should be inserted here -->
-              </div>
-          </div>
-      </section>
-
-      <!-- Recent Transactions -->
-      <section class="transaction-section">
-          <div class="card">
-              <div class="card-header">Recent Transactions</div>
-              <div class="transaction-list">
-                  <!-- Dynamic list of recent transactions should be inserted here -->
-              </div>
-          </div>
-      </section>
-  </main>
+    </div>
+  </div>
+</nav>
+<div class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center py-5">
+        <h1>Welcome to the Banking Dashboard</h1>
+      </div>
+      <aside class="sidebar">
+        <ul>
+            <li><a href="/dashboard" class="active">Dashboard</a></li>
+            <li><a href="/cardmanagement">Cards</a></li>
+            <li><a href="/transaction">Transactions</a></li>
+            <li><a href="/history">Logs</a></li>
+            <li><a href="/account">Account Management</a></li>
+            <li><a href="/open">Open Card/Account</a></li>
+        </ul>
+    </aside>
+      <div class="col-md-9">
+        <div class="main-content">
+          <section class="account-overview">
+            <ng-container If="response; else noAccounts">
+              <ul>
+                <li *ngFor="let acc of accounts">
+                  <p>Account Number: {{ acc.AccountNumber }} </p>
+                  <p>Account Type: {{ acc.AccountType }} </p>
+                  <p>Balance: ${{ acc.Balance }} </p>
+                </li>              
+              </ul>
+            </ng-container>
+            <ng-template #noAccounts>
+              <div class="no-account-message">Please open an account first.</div>
+            </ng-template>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
