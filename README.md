@@ -1,4 +1,4 @@
-**Installation Guide**
+<!-- **Installation Guide**
 
 This guide will walk you through the installation process for Node.js, Angular, SQL Server Management Studio (SSMS), and provide additional tutorials and resources for each.
 
@@ -19,7 +19,7 @@ npm install -g @angular/cli
 ### Additional Resources
 - **Youtube Video**: Watch [this video](https://www.youtube.com/watch?v=9ZD7cKIaxdM) for additional insights.
 
-Now, you're all set up with Node.js, Angular, and SQL Server Management Studio! Happy coding!
+Now, you're all set up with Node.js, Angular, and SQL Server Management Studio! Happy coding! -->
 
 # Banking App
 
