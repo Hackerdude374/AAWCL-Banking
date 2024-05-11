@@ -43,10 +43,16 @@
           <input type="text" name="username" ngModel placeholder="username" />
         </div>
         <div class="input-box">
-          <input type="text" name="password" ngModel placeholder="password" />
+          <input
+            type="password"
+            name="password"
+            ngModel
+            placeholder="password"
+          />
         </div>
         <button type="submit">Login</button>
       </form>
     </div>
     <div *ngIf="loginStatus">{{ loginStatus }}</div>
   </div>
+</div>

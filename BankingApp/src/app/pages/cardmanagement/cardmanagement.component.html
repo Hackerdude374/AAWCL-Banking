@@ -1,14 +1,14 @@
 <ng-container If="response; else noCards">
-    <ul>
-        <li *ngFor="let card of cards" class="credit-card">
-            <p> Card Number: {{ card.CardNumber }} </p>
-            <p> Card Holder: {{ card.CardHolder }} </p>
-            <p> Card Type: {{ card.CardType }} </p>
-            <p> Expiry: {{ card.ExpirationDate }} </p>
-            <p> Cvv: {{ card.Cvv }} </p>
-        </li>
-    </ul>
+  <ul>
+    <li *ngFor="let card of cards" class="credit-card">
+      <p>Card Number: {{ card.CardNumber }}</p>
+      <p>Card Holder: {{ card.CardHolder }}</p>
+      <p>Card Type: {{ card.CardType }}</p>
+      <p>Expiry: {{ card.ExpirationDate }}</p>
+      <p>Cvv: {{ card.Cvv }}</p>
+    </li>
+  </ul>
 </ng-container>
 <ng-template #noCards>
-    <div class="no-card-message">Please open an credit card first.</div>
+  <div class="no-card-message">Please open an credit card first.</div>
 </ng-template>
