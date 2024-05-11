@@ -175,5 +175,17 @@ a:hover {
 /* CSS for account information paragraphs */
 .account-info {
   margin: 5px 0;
+  font-weight:bold;
+  font-family: 'OCR A Std', monospace;
 }
 
+.navbar {
+  overflow: hidden;
+}
+
+.navbar a {
+  float: right;
+  color:blue;
+  text-align: center;
+  text-decoration: none;
+}
