@@ -34,7 +34,7 @@ export class CardmanagementComponent implements OnInit {
   }
 }
 
-export interface Card {
+export interface Card { 
   CardNumber: string,
   CardHolder: string,
   ExpirationDate: Time,
