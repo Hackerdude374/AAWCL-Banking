@@ -25,7 +25,6 @@ export class SignupComponent {
     const name =  data.FullName;
     const address = data.CurrAddr;
     const phone = data.PhoneNumber;
-
     this.signupService.signup(username, password, email, name, address, phone).subscribe(
     (response: any) => {
       console.log('Signup successful:', response);
