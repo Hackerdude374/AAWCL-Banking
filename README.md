@@ -38,4 +38,8 @@ To run the backend API, navigate to the API directory and use the following comm
 ```bash
 cd API
 python API.py
-```
+```ah 
+
+## Features 
+
+Open Accounts: adds Cards in the Cards section in your dashboard
