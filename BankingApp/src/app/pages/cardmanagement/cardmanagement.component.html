@@ -1,3 +1,10 @@
+<a href="http://localhost:4200/dashboard">
+    <img
+      src="https://static.vecteezy.com/system/resources/previews/023/904/057/original/left-arrow-icon-undo-icon-arrow-back-icon-arrow-sign-and-symbol-vector.jpg"
+      alt="backward-arrow"
+      class="back-arrow"
+    />
+</a>
 <ng-container If="response; else noCards">
     <ul>
         <li *ngFor="let card of cards" class="credit-card">
@@ -12,3 +19,4 @@
 <ng-template #noCards>
     <div class="no-card-message">Please open an credit card first.</div>
 </ng-template>
+<div *ngIf="cardStatus">{{ cardStatus }}</div>

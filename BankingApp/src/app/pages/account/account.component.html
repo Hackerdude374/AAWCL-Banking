@@ -4,7 +4,7 @@
       alt="backward-arrow"
       class="back-arrow"
     />
-  </a>
+</a>
 <ng-container If="response; else noAccounts">
     <ul>
     <div *ngFor="let account of accounts">
@@ -26,3 +26,4 @@
 <ng-template #noAccounts>
   <div class="no-account-message">Please open an account first.</div>
 </ng-template>
+<div *ngIf="accStatus">{{ accStatus }}</div>

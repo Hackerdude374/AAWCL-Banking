@@ -6,15 +6,14 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-
   standalone: true,
   imports: [ CommonModule ],
-
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 
 export class DashboardComponent implements OnInit {
+  accStatus!: string;
   accounts: Account[] = [];
 
   constructor(private authService: AuthService, private accountService: AccountService, private router: Router) { }
@@ -36,6 +35,7 @@ export class DashboardComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching accounts:', error);
+        this.accStatus = error;
       }
     );
   }

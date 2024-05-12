@@ -23,7 +23,7 @@ export class SignupComponent {
     const password = data.password;
     const email = data.Email;
     const name =  data.FullName;
-    const address = data.CurrAddr;
+    const address = data.CurrentAddress;
     const phone = data.PhoneNumber;
     this.signupService.signup(username, password, email, name, address, phone).subscribe(
     (response: any) => {
