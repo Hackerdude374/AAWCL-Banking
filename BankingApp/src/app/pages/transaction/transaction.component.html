@@ -5,24 +5,48 @@
     class="back-arrow"
   />
 </a>
+
+<div class="card-header">Make Transaction</div>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
-        <div class="card-header">Make Transaction</div>
         <div class="card-body">
-          <form #transaction="ngForm" (ngSubmit)="makeTransactions(transaction.value)">
+          <form
+            #transaction="ngForm"
+            (ngSubmit)="makeTransactions(transaction.value)"
+          >
             <div class="input-box">
               <select name="sender_account_number" ngModel required>
-                <option value="" disabled selected>Select Sender Account</option>
-                <option *ngFor="let acc of accounts" [value]="acc.AccountNumber">{{ acc.AccountNumber }}</option>
+                <option value="" disabled selected>
+                  Select Sender Account
+                </option>
+                <option
+                  *ngFor="let acc of accounts"
+                  [value]="acc.AccountNumber"
+                >
+                  {{ acc.AccountNumber }}
+                </option>
               </select>
             </div>
             <div class="input-box">
-              <input type="text" name="recipient_account_number" ngModel placeholder="Receiver" required>
+              <input
+                type="text"
+                name="recipient_account_number"
+                ngModel
+                placeholder="Receiver"
+                required
+              />
             </div>
             <div class="input-box">
-              <input type="text" name="amount" ngModel placeholder="$0.00" required>
+              <input
+                type="text"
+                name="amount"
+                ngModel
+                placeholder="$0.00"
+                required
+              />
             </div>
             <button type="submit">Transact</button>
           </form>
