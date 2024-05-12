@@ -12,7 +12,7 @@ export class SignupService {
     constructor(private http: HttpClient) { }
   
     signup(username: string, password: string, email: string, name: string, address: string, phone: string): Observable<any> {
-      return this.http.post<any>(`${this.apiUrl}/signup`, { Username: username, PasswordHash: password, Email: email, FullName: name, CurrAddr: address, PhoneNumber: phone }).pipe(
+      return this.http.post<any>(`${this.apiUrl}/signup`, { Username: username, PasswordHash: password, Email: email, FullName: name, CurrentAddress: address, PhoneNumber: phone }).pipe(
         catchError(error => {
           let errorMessage = 'An unknown error occurred';
           if (error.error && error.error.error) {

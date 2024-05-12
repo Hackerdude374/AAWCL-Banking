@@ -107,7 +107,7 @@ def create_user():
     # Insert into database
     cursor.execute(
         'INSERT INTO Users (Username, PasswordHash, Email, FullName, CurrAddr, PhoneNumber) VALUES (?, ?, ?, ?, ?, ?)',
-        data['Username'], hash_password(Password), data['Email'], data['FullName'], data['CurrAddr'], data['PhoneNumber'])
+        data['Username'], hash_password(Password), data['Email'], data['FullName'], data['CurrentAddress'], data['PhoneNumber'])
     conn.commit()
 
     return jsonify({'message': 'User created successfully'}), 200
@@ -235,29 +235,25 @@ def open_account():
 @app.route('/myaccounts', methods=['GET'])
 @jwt_required()
 def my_accounts():
-    try:
-        user_id = get_jwt_identity()
+    user_id = get_jwt_identity()
 
-        cursor.execute('SELECT * FROM Accounts WHERE UserID = ?', user_id)
-        accounts = cursor.fetchall()
-        result_list = []
-        if not accounts:
-            return jsonify({'message': 'no account exists'}), 400
-        for account in accounts:
-            account_dict = dict(zip([column[0] for column in cursor.description], account))
+    cursor.execute('SELECT * FROM Accounts WHERE UserID = ?', user_id)
+    accounts = cursor.fetchall()
+    result_list = []
+    if not accounts:
+        return jsonify({'error': 'no account exists'}), 400
+    for account in accounts:
+        account_dict = dict(zip([column[0] for column in cursor.description], account))
 
-            # Convert decimal values to float
-            account_dict['Balance'] = float(account_dict['Balance'])
+        # Convert decimal values to float
+        account_dict['Balance'] = float(account_dict['Balance'])
 
-            # Convert datetime objects to ISO format string
-            account_dict['OpeningDate'] = account_dict['OpeningDate'].isoformat()
+        # Convert datetime objects to ISO format string
+        account_dict['OpeningDate'] = account_dict['OpeningDate'].isoformat()
 
-            result_list.append(account_dict)
-        json_result = json.dumps(result_list)
-        return jsonify(json_result), 200
-    except Exception as e:
-        conn.rollback()
-        return jsonify({'error': str(e)}), 500
+        result_list.append(account_dict)
+    json_result = json.dumps(result_list)
+    return jsonify(json_result), 200
 
 @app.route('/changestatus', methods=['POST'])
 @jwt_required()

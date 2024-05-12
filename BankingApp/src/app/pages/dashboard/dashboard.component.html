@@ -46,6 +46,7 @@
             <ng-template #noAccounts>
               <div class="no-account-message">Please open an account first.</div>
             </ng-template>
+            <div *ngIf="accStatus">{{ accStatus }}</div>
           </section>
         </div>
       </div>

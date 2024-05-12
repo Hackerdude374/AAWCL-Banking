@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class CardmanagementComponent implements OnInit {
 
   cards: Card[] = [];
+  cardStatus!: string;
 
   ngOnInit(): void {
     this.loadCards();
@@ -29,6 +30,7 @@ export class CardmanagementComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching credit cards:', error);
+        this.cardStatus = error;
       }
     );
   }

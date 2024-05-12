@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 
 export class DashboardComponent implements OnInit {
+  accStatus!: string;
   accounts: Account[] = [];
 
   constructor(private authService: AuthService, private accountService: AccountService, private router: Router) { }
@@ -34,6 +35,7 @@ export class DashboardComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching accounts:', error);
+        this.accStatus = error;
       }
     );
   }
