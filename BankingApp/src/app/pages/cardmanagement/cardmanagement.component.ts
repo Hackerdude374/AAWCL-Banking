@@ -34,6 +34,20 @@ export class CardmanagementComponent implements OnInit {
       }
     );
   }
+
+  changeCardStatus(card: Card) {
+    const card_number = card.CardNumber;
+    const card_status = card.newStatus;
+    card.CardStatus = card_status;
+    this.accountService.cardStatus(card_number, card_status).subscribe(
+      (response: string) => {
+        console.log(response);
+      },
+      (error) => {
+        console.error('Error changing status:', error);
+      }
+    );
+  }
 }
 
 export interface Card { 
@@ -42,5 +56,7 @@ export interface Card {
   ExpirationDate: Time,
   Cvv: number,
   CardType: string,
-  Balance: number
+  Balance: number,
+  CardStatus?: string,
+  newStatus?: string
 }

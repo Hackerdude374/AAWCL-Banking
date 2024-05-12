@@ -14,6 +14,15 @@
             <p> Expiry: {{ card.ExpirationDate }} </p>
             <p> Cvv: {{ card.Cvv }} </p>
         </li>
+        <div>
+            <label>
+            <input type="radio" name="{{card.CardNumber}}_status" value="OnHold" [(ngModel)]="card.newStatus"> OnHold
+            </label>
+            <label>
+            <input type="radio" name="{{card.CardNumber}}_status" value="Activated" [(ngModel)]="card.newStatus"> Activated
+            </label>
+            <button (click)="changeCardStatus(card)">Save</button>
+        </div>
     </ul>
 </ng-container>
 <ng-template #noCards>
