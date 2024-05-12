@@ -100,6 +100,21 @@ export class AccountService {
     );
   }
 
+  cardStatus(card_number: string, card_status: string|undefined): Observable<any> {
+    const token = this.jwtService.getToken()
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const data = { CardNumber: card_number, CardStatus: card_status };
+    return this.http.post<any>(`${this.apiUrl}/cardstatus`, data, { headers }).pipe(
+      catchError((error: any) => {
+        let errorMessage = 'An unknown error occurred';
+        if (error.error && error.error.error) {
+          errorMessage = error.error.error;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
   getMyCards(): Observable<any> {
     const token = this.jwtService.getToken()
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
