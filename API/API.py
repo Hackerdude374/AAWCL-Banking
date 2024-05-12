@@ -222,10 +222,10 @@ def open_account():
         # Extract account data
         account_type = data['AccountType']
         opening_date = datetime.now()
-        acc_status = data.get('AccStatus', 'Active')  # Default to 'Active' if not provided
+        acc_status = data.get('AccStatus', 'Activated')  # Default to 'Active' if not provided
 
-        cursor.execute('INSERT INTO Accounts (AccountNumber, UserID, AccountType, OpeningDate, AccStatus) VALUES (?, ?, ?, ?, ?)'
-                   , account_number, int(user_id), account_type, opening_date, acc_status)
+        cursor.execute('INSERT INTO Accounts (AccountNumber, UserID, AccountType, Balance, OpeningDate, AccStatus) VALUES (?, ?, ?, ?, ?, ?)'
+                   , account_number, int(user_id), account_type, 100.00, opening_date, acc_status)
         conn.commit()
         return jsonify({'message': 'Account created successfully'}), 201
     except Exception as e:
@@ -359,6 +359,12 @@ def make_transaction():
         cursor.execute(
             'INSERT INTO TransactionLogs (LogID, AccountNumber, Recipient, LogAction, Amount, LogTime, LogDesc) VALUES (?, ?, ?, ?, ?, ?, ?)',
             (transaction_id, sender_account_number, recipient_account_number, transaction_type, amount, transaction_date, description))
+        conn.commit()
+
+        action = 'receive'
+        cursor.execute(
+            'INSERT INTO TransactionLogs (LogID, AccountNumber, Recipient, LogAction, Amount, LogTime, Logdesc) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            (transaction_id, recipient_account_number, recipient_account_number, action, amount, transaction_date, description))
         conn.commit()
 
         return jsonify({'message': 'Transaction successful'}), 200
