@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './account.component.css'
 })
 export class AccountComponent {
+  accStatus!: string;
   accounts: Account[] = []
 
   constructor(private authService: AuthService, private accountService: AccountService, private router: Router) { }
@@ -34,6 +35,7 @@ export class AccountComponent {
       },
       (error) => {
         console.error('Error fetching accounts:', error);
+        this.accStatus = error;
       }
     );
   }
