@@ -4,11 +4,11 @@
     height: 50px;
     margin-bottom: 20px;
   }
-  
+
   /* Styling for container */
   /* Styling for container */
   .container {
-    max-width: 50%;
+    max-width: 90%;
     margin: 0 auto;
     padding: 20px;
     background-color: #f7f7f7;
@@ -20,20 +20,20 @@
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
   }
-  
-  
-  /* Styling for headings */
+
+
+  /* / Styling for headings / */
   h2 {
     color:black;
     margin-bottom: 20px;
   }
-  
-  /* Styling for form */
+
+  /* / Styling for form / */
   .form-group {
     margin-bottom: 20px;
   }
-  
-  /* Styling for select */
+
+  /* / Styling for select / */
   .form-control {
     width: 100%;
     padding: 10px;
@@ -41,12 +41,12 @@
     border: 1px solid #ccc; /* Added border for input fields */
     border-radius: 4px;
   }
-  
+
   /* Styling for logs */
   ul {
     padding: 0;
   }
-  
+
   li {
     background-color: #fff;
     padding: 15px;
@@ -54,20 +54,39 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   /* Styling for no history message */
   p.no-history {
     color: #888;
   }
-  
+
   /* Border styles */
   .container {
     border-width: 2px;
     border-style: solid;
     border-color: #ccc; /* Changed border color */
   }
-  
+
   /* Font styles */
-  h2, p, li {
+   p, li {
     font-family: 'Densia Sans', sans-serif;
+    list-style-type:none;
   }
+
+  h2 {
+    font-family: 'Densia Sans', sans-serif;
+    background-color: #007bff;
+    color:white;
+    text-align: center; /* Center the text horizontally */
+    font:24px;
+    padding: 10px;
+    border-radius:10px;
+}
+
+
+li {
+  border: 1px solid black; /* Black border with 1px width */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+  /* Add any other styles you want */
+
+}
