@@ -344,6 +344,12 @@ def make_transaction():
 
         if sender_account.Balance < amount:
             return jsonify({'error': 'Insufficient funds'}), 400
+        
+        if sender_account['AccStatus'] != 'Activated':
+            return jsonify({'error': 'Sender account was not activated'})
+        
+        if recipient_account['AccStatus'] != 'Activated':
+            return jsonify({'error': 'Recipient account was not activated'})
 
         # Update sender's and recipient's account balances
         cursor.execute('UPDATE Accounts SET Balance = Balance - ? WHERE AccountNumber = ? AND UserID = ?', amount, sender_account_number, sender_id)
@@ -459,9 +465,10 @@ def open_card():
     card_type = data['CardType']
     opening_date = datetime.now()
     issued = "AAWCLBank"
+    card_status = 'OnHold'
 
-    cursor.execute('INSERT INTO Creditcard (CardNumber, CardHolder, ExpirationDate, OpeningDate, Cvv, CardType, IssuedBy, UserID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
-                , card_number, card_holder, expiration, opening_date, cvv, card_type, issued, user_id)
+    cursor.execute('INSERT INTO Creditcard (CardNumber, CardHolder, ExpirationDate, OpeningDate, Cvv, CardType, IssuedBy, CardStatus, UserID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
+                , card_number, card_holder, expiration, opening_date, cvv, card_type, issued, card_status, user_id)
     conn.commit()
     return jsonify({'message': 'Credit card created successfully'}), 201
 
