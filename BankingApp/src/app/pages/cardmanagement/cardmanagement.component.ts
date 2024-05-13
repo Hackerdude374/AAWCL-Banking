@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../service/acc.service'
 import { Time } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cardmanagement',
   standalone: true,
-  imports: [ CommonModule ],
+  imports: [ FormsModule, CommonModule ],
   templateUrl: './cardmanagement.component.html',
   styleUrl: './cardmanagement.component.css'
 })
