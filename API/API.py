@@ -474,7 +474,7 @@ def open_card():
 
 @app.route('/cardstatus', methods=['POST'])
 @jwt_required()
-def change_status():
+def card_status():
     data = request.json
     if not data:
         return jsonify({'error': 'No data provided'}), 400
