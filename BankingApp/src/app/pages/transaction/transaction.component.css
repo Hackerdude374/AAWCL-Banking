@@ -1,101 +1,103 @@
+/* Base container with refined visual style */
 .container {
-    margin-top: 50px;
+  max-width: 50%;
+  margin: 50px auto; /* Centered with vertical space for focus */
+  padding: 20px;
+  background-color: #ffffff; /* Bright and clean background color */
+  border-radius: 16px; /* Increased border radius for a softer look */
+  border: 1px solid #ddd; /* Lighter border for subtlety */
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif; /* Updated to a trendy, geometric font */
+  font-weight: normal; /* Normal weight for a cleaner look */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* More diffuse shadow for depth */
+}
+
+/* Removing hover effect */
+.container {
+  transition: none; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Card styling with modern aesthetics */
+.card {
+  border: none;
+  border-radius: 15px; /* Consistent, softer rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Lighter shadow for subtlety */
+  margin-bottom: 20px;
+}
+
+/* Card header with improved typography */
+.card-header {
+  padding: 20px 24px; /* Increased padding for a better visual ratio */
+  background: linear-gradient(to right, #007bff, #0056b3); /* Pleasing gradient */
+  color: #fff;
+  font-size: 22px; /* Increased font size slightly for emphasis */
+  font-family: 'Poppins', sans-serif; /* Trendy and clean font */
+  text-transform: none; /* Normal casing for a more formal tone */
+  letter-spacing: normal; /* Standard spacing for readability */
+  border-top-left-radius: 15px; /* Rounded corners only on top */
+  border-top-right-radius: 15px;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center items horizontally */
+  text-align: center; /* Center text horizontally */
+  font:24px;
+}
+
+/* Form styling with better layout and spacing */
+.input-box {
+  margin-bottom: 20px; /* Increased spacing */
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box label {
+  margin-bottom: 8px;
+  color: #333; /* Dark gray for high contrast and readability */
+}
+
+input, select {
+  height: 40px; /* Increased height for better visual impact and easier interaction */
+  border-radius: 8px; /* Rounded corners for input fields */
+  transition: border-color 0.2s ease; /* Smooth transition for focus effects */
+  box-shadow: none; /* Cleaner look */
+}
+
+input:focus, select:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2); /* Subtle focus indicator */
+}
+
+/* Button design with updated styles */
+button {
+  background-color: #0056b3; /* Consistent theme color */
+  color: white;
+  font-weight: 500; /* Medium weight for better visibility */
+  border: none;
+  height: 50px; /* Increased button height for better visual presence */
+  font-size: 18px; /* Larger font size for easier readability */
+  width: 100%; /* Make button stretch across the full width */
+  border-radius: 8px; /* Rounded corners for the button */
+}
+
+/* Responsive design for optimal mobile viewing */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; /* Full width on smaller screens */
+    margin: 20px auto;
+    padding: 15px;
   }
-  
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
+
   .card-header {
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    border-radius: 10px 10px 0 0;
-    font-size: 24px;
-    font-family: 'Densia Sans', sans-serif;
-    font-weight: bold;
-    color:white;
-    background:#007bff;
+    padding: 16px 20px; /* Slightly smaller padding for compact appearance */
+
+}
+
+  button {
+    height: 44px; /* Slightly reduced button height on mobile */
   }
-  
-  .card-body {
-    padding: 20px;
-    border: 2px solid black;
-  }
-  
-  .form-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  .mb-3 {
-    width: calc(100% - 44px);
-    padding: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  
-  .form-control {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
-  
-  .text-danger {
-    color: #ff0000;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .card {
-    margin-bottom: 20px;
-  }
-  
-  .form-control::placeholder {
-    color: #6c757d;
-  }
-  
-  .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  .text-danger {
-    font-size: 0.875rem;
-  }
-  
-  .text-danger:hover {
-    color: #cc0000;
-  }
-  
-  .btn-primary:disabled {
-    background-color: #3a83c2;
-    cursor: not-allowed;
-  }
-  
-  .btn-primary {
-    margin-bottom: 15px;
-  }
-  
-  .back-arrow{
-    width:10px;
-    height:10px;
-  }
+}
+.back-arrow{
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}

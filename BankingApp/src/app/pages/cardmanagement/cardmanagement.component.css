@@ -1,73 +1,73 @@
 /* Styling for back arrow */
 .back-arrow {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
-  }
-  
-  /* Styling for container */
-  /* Styling for container */
-  .container {
-    max-width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: black; /* Changed border color to black */
-    border-width: 2px; /* Added border width */
-    font-family: 'Densia Sans', sans-serif;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
-  }
-  
-  
-  /* Styling for headings */
-  h2 {
-    color:black;
-    margin-bottom: 20px;
-  }
-  
-  /* Styling for form */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  /* Styling for select */
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc; /* Added border for input fields */
-    border-radius: 4px;
-  }
-  
-  /* Styling for logs */
-  ul {
-    padding: 0;
-  }
-  
-  li {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Styling for no history message */
-  p.no-history {
-    color: #888;
-  }
-  
-  /* Border styles */
-  .container {
-    border-width: 2px;
-    border-style: solid;
-    border-color: #ccc; /* Changed border color */
-  }
-  
-  /* Font styles */
-  h2, p, li {
-    font-family: 'Densia Sans', sans-serif;
-  }
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+/* Styling for container */
+/* Styling for container */
+.container {
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black; /* Changed border color to black */
+  border-width: 2px; /* Added border width */
+  font-family: 'Densia Sans', sans-serif;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+}
+
+
+/* Styling for headings */
+h2 {
+  color:black;
+  margin-bottom: 20px;
+}
+
+/* Styling for form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Styling for select */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Added border for input fields */
+  border-radius: 4px;
+}
+
+/* Styling for logs */
+ul {
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for no history message */
+p.no-history {
+  color: #888;
+}
+
+/* Border styles */
+.container {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ccc; /* Changed border color */
+}
+
+/* Font styles */
+h2, p, li {
+  font-family: 'Densia Sans', sans-serif;
+}

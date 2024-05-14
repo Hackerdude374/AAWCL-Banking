@@ -1,13 +1,19 @@
 <title>Webleb Banking Dashboard</title>
 <nav class="navbar navbar-expand navbar-light bg-light">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-
         <li class="nav-item">
           <a class="nav-link" href="#" (click)="onLogout()">Logout</a>
         </li>
@@ -31,24 +37,25 @@
             <li><a href="/open">Open Card/Account</a></li>
         </ul>
     </aside>
-      <div class="col-md-9">
-        <div class="main-content">
-          <section class="account-overview">
-            <ng-container If="response; else noAccounts">
-              <ul>
-                <li *ngFor="let acc of accounts">
-                  <p>Account Number: {{ acc.AccountNumber }} </p>
-                  <p>Account Type: {{ acc.AccountType }} </p>
-                  <p>Balance: ${{ acc.Balance }} </p>
-                </li>              
-              </ul>
-            </ng-container>
-            <ng-template #noAccounts>
-              <div class="no-account-message">Please open an account first.</div>
-            </ng-template>
-            <div *ngIf="accStatus">{{ accStatus }}</div>
-          </section>
-        </div>
+    <div class="col-md-9">
+      <div class="main-content">
+        <section class="account-overview">
+          <ng-container If="response; else noAccounts">
+            <ul class="custom-list">
+              <li *ngFor="let acc of accounts">
+                <p>Account Number: {{ acc.AccountNumber }}</p>
+                <p>Account Type: {{ acc.AccountType }}</p>
+                <p>Balance: ${{ acc.Balance }}</p>
+              </li>
+            </ul>
+          </ng-container>
+          <ng-template #noAccounts>
+            <div class="no-account-message">
+              Please open an account first.
+            </div>
+          </ng-template>
+          <div *ngIf="accStatus">{{ accStatus }}</div>
+        </section>
       </div>
     </div>
   </div>
