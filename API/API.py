@@ -269,7 +269,7 @@ def change_status():
         return jsonify({'error': 'Account not found'}), 404
     cursor.execute('UPDATE Accounts SET AccStatus = ? WHERE AccountNumber = ?', data['AccountStatus'], data['AccountNumber'])
     conn.commit()
-    return jsonify({'message': 'Account status updated successfully'}), 200
+    return jsonify({'message': 'Account status updated successfully!'}), 200
 
 @app.route('/accoverview', methods=['GET'])
 @jwt_required()
@@ -300,17 +300,19 @@ def generate_transaction_id():
 
 def generate_description(transaction_type, sender, recipient, amount):
     if transaction_type == 'transfer':
-        description = f"Transfer from {sender} to {recipient}"
+        description = f"Transferred from {sender} to {recipient}"
     elif transaction_type == 'deposit':
-        description = f"Deposit to {recipient}"
+        description = f"Deposited to {recipient}"
     elif transaction_type == 'withdrawal':
-        description = f"Witidrawal from {sender}"
+        description = f"Witidrew from {sender}"
+    elif transaction_type == 'receive':
+        description = f"Received from {sender}"
     else:
         description = "UNKNOWN"
 
     description += f", Amount: {amount}"
 
-    return {description}
+    return description
 
 @app.route('/transactions', methods=['POST'])
 @jwt_required()
@@ -323,7 +325,7 @@ def make_transaction():
     required_fields = ['sender_account_number', 'recipient_account_number', 'amount']
     for field in required_fields:
         if field not in data:
-            return jsonify({'error': f'Missing required field: {field}'}), 400
+            return jsonify({'error': 'Missing required field: {field}'}), 400
 
     sender_account_number = int(data['sender_account_number'])
     recipient_account_number = int(data['recipient_account_number'])
@@ -344,10 +346,10 @@ def make_transaction():
     if sender_account.Balance < amount:
         return jsonify({'error': 'Insufficient funds'}), 400
         
-    if sender_account['AccStatus'] != 'Activated':
+    if sender_account[5] != 'Activated':
         return jsonify({'error': 'Sender account was not activated'}), 401
 
-    if recipient_account['AccStatus'] != 'Activated':
+    if recipient_account[5] != 'Activated':
         return jsonify({'error': 'Recipient account was not activated'}), 401
 
     # Update sender's and recipient's account balances
@@ -358,21 +360,23 @@ def make_transaction():
 
     # Record transaction history
     transaction_type = 'transfer'
-    transaction_id = int(generate_transaction_id())
+    sender_transaction_id = int(generate_transaction_id())
     transaction_date = datetime.now()
     description = str(generate_description(transaction_type, sender_account_number, recipient_account_number, amount))
     cursor.execute(
         'INSERT INTO TransactionLogs (LogID, AccountNumber, Recipient, LogAction, Amount, LogTime, LogDesc) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        (transaction_id, sender_account_number, recipient_account_number, transaction_type, amount, transaction_date, description))
+        (sender_transaction_id, sender_account_number, recipient_account_number, transaction_type, amount, transaction_date, description))
     conn.commit()
 
     action = 'receive'
+    receiver_transaction_id = int(generate_transaction_id())
+    description = str(generate_description(transaction_type, sender_account_number, recipient_account_number, amount))
     cursor.execute(
         'INSERT INTO TransactionLogs (LogID, AccountNumber, Recipient, LogAction, Amount, LogTime, Logdesc) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        (transaction_id, recipient_account_number, recipient_account_number, action, amount, transaction_date, description))
+        (receiver_transaction_id, recipient_account_number, recipient_account_number, action, amount, transaction_date, description))
     conn.commit()
 
-    return jsonify({'message': 'Transaction successful'}), 200
+    return jsonify({'message': 'Transaction successful!'}), 200
 
 @app.route('/logs', methods=['POST'])
 @jwt_required()
@@ -482,7 +486,7 @@ def card_status():
         return jsonify({'error': 'Card not found'}), 404
     cursor.execute('UPDATE CreditCard SET CardStatus = ? WHERE CardNumber = ?', data['CardStatus'], data['CardNumber'])
     conn.commit()
-    return jsonify({'message': 'Card status updated successfully'}), 200
+    return jsonify({'message': 'Card status updated successfully!'}), 200
 
 @app.route('/mycards', methods=['GET'])
 @jwt_required()
