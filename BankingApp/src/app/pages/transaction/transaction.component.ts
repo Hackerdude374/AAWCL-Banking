@@ -28,13 +28,11 @@ export class TransactionComponent implements OnInit {
     this.accountService.makeTransaction(sender_account_number, recipient_account_number, amount).subscribe(
     (response: any) => {
       console.log(response);
-      const jsonResponse = JSON.parse(response.message)
-      this.transactionStatus = jsonResponse as string;
+      this.transactionStatus = response;
     },
     (error) => {
       console.error(error);
-      const jsonResponse = JSON.parse(error.error)
-      this.transactionStatus = jsonResponse as string;
+      this.transactionStatus = error;
     });
   }
 
