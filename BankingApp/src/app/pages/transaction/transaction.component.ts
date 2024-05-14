@@ -28,7 +28,7 @@ export class TransactionComponent implements OnInit {
     this.accountService.makeTransaction(sender_account_number, recipient_account_number, amount).subscribe(
     (response: any) => {
       console.log(response);
-      this.transactionStatus = response;
+      this.transactionStatus = response.message;
     },
     (error) => {
       console.error(error);

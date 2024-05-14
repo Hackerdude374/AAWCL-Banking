@@ -45,11 +45,13 @@ export class AccountComponent {
     const acc_status = account.newStatus;
     account.AccStatus = acc_status;
     this.accountService.changeStauts(acc_number, acc_status).subscribe(
-      (response: string) => {
+      (response) => {
         console.log(response);
+        this.accStatus = response.message;
       },
       (error) => {
         console.error('Error changing status:', error);
+        this.accStatus = error;
       }
     );
   }

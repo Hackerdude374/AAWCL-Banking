@@ -1,3 +1,4 @@
+<div class="top">
 <h1> Card Management </h1>
 <a href="http://localhost:4200/dashboard">
     <img
@@ -6,6 +7,8 @@
       class="back-arrow"
     />
 </a>
+</div>
+<div class = "container">
 <ng-container If="response; else noCards">
     <ul>
         <li *ngFor="let card of cards" class="credit-card">
@@ -14,6 +17,7 @@
             <p> Card Type: {{ card.CardType }} </p>
             <p> Expiry: {{ card.ExpirationDate }} </p>
             <p> Cvv: {{ card.Cvv }} </p>
+            <p> CardStatus: {{ card.CardStatus }} </p>
             <div>
                 <label>
                 <input type="radio" name="{{card.CardNumber}}_status" value="OnHold" [(ngModel)]="card.newStatus"> OnHold
@@ -21,12 +25,13 @@
                 <label>
                 <input type="radio" name="{{card.CardNumber}}_status" value="Activated" [(ngModel)]="card.newStatus"> Activated
                 </label>
-                <button (click)="changeCardStatus(card)">Save</button>
+                <button (click)="changeCardStatus(card)" class="saveButton">Save</button>
             </div>
         </li>
     </ul>
+    <div *ngIf="cardStatus">{{ cardStatus }}</div>
 </ng-container>
 <ng-template #noCards>
     <div class="no-card-message">Please open an credit card first.</div>
 </ng-template>
-<div *ngIf="cardStatus">{{ cardStatus }}</div>
+</div>

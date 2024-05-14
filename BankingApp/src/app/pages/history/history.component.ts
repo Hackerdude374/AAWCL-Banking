@@ -34,6 +34,12 @@ export class HistoryComponent {
     );
   }
 
+  sortItemsByDatetime() {
+    this.logs.sort((a, b) => {
+      return new Date(b.LogTime).getTime() - new Date(a.LogTime).getTime();
+    });
+  }
+
   loadLogs(account_number: number) {
     this.accountService.showLog(account_number).subscribe(
       (response: any) => {
@@ -41,6 +47,7 @@ export class HistoryComponent {
         const jsonResponse = JSON.parse(response); // Parse the JSON string
         this.logs = jsonResponse as Log[]; // Map the parsed data into the logs array
         console.log(this.logs);
+        this.sortItemsByDatetime();
       },
       (error) => {
         console.error('Error fetching logs:', error);
@@ -55,7 +62,7 @@ export interface Log {
   Recipient: number,
   Amount: number,
   LogAction: string,
-  LogTime: Time,
+  LogTime: string,
   LogDesc: string
 }
 

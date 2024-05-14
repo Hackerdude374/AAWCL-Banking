@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(135deg, #6e48aa, #9d50bb);
+  background: linear-gradient(135deg, #3432c5, #9d50bb);
   font-family: 'Arial', sans-serif;
 }
 
@@ -39,4 +39,16 @@ button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   background-color: #f50057;
+}
+
+.back-arrow {
+  width: 30px;
+  height: 30px;
+  margin: 20px;
+  cursor: pointer;
+
+}
+
+.top{
+  background: linear-gradient(135deg, #3432c5, #9d50bb);
 }

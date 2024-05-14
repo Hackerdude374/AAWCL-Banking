@@ -1,73 +1,87 @@
-/* Styling for back arrow */
-.back-arrow {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 20px;
-}
-
-/* Styling for container */
-/* Styling for container */
-.container {
-  max-width: 50%;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: black; /* Changed border color to black */
-  border-width: 2px; /* Added border width */
-  font-family: 'Densia Sans', sans-serif;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
-}
-
-
-/* Styling for headings */
-h2 {
-  color:black;
-  margin-bottom: 20px;
-}
-
-/* Styling for form */
-.form-group {
-  margin-bottom: 20px;
-}
-
-/* Styling for select */
-.form-control {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc; /* Added border for input fields */
-  border-radius: 4px;
-}
-
-/* Styling for logs */
 ul {
+  list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-li {
-  background-color: #fff;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.credit-card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 280px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border:solid 2px black;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-/* Styling for no history message */
-p.no-history {
-  color: #888;
-}
-
-/* Border styles */
 .container {
-  border-width: 2px;
-  border-style: solid;
-  border-color: #ccc; /* Changed border color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3432c5, #333);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.credit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-/* Font styles */
-h2, p, li {
-  font-family: 'Densia Sans', sans-serif;
+.credit-card p {
+  margin: 10px 0;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.credit-card p:first-child {
+  font-size: 18px;
+  color: #000000;
+}
+
+.no-card-message {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+h1{
+
+  text-align: center;
+  padding:20px;
+
+}
+
+.back-arrow {
+  width: 30px;
+  height: 30px;
+  margin: 20px;
+  cursor: pointer;
+}
+.top{
+  background: linear-gradient(135deg, #3432c5, #333);
+}
+
+.saveButton{
+  background-color: #6940ff;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

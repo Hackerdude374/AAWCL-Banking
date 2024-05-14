@@ -41,11 +41,13 @@ export class CardmanagementComponent implements OnInit {
     const card_status = card.newStatus;
     card.CardStatus = card_status;
     this.accountService.cardStatus(card_number, card_status).subscribe(
-      (response: string) => {
+      (response) => {
         console.log(response);
+        this.cardStatus = response.message;
       },
       (error) => {
         console.error('Error changing status:', error);
+        this.cardStatus = error;
       }
     );
   }

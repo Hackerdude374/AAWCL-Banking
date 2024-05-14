@@ -36,9 +36,9 @@
       </div>
       <button (click)="changeAccountStatus(account)">Save</button>
     </div>
+    <div *ngIf="accStatus">{{ accStatus }}</div>
   </ul>
 </ng-container>
 <ng-template #noAccounts>
   <div class="no-account-message">Please open an account first.</div>
 </ng-template>
-<div *ngIf="accStatus">{{ accStatus }}</div>
