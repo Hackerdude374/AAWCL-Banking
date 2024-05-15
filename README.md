@@ -40,6 +40,8 @@ cd API
 python API.py
 ```ah 
 
+If there any connection refusals, make sure your firewall is turned off. 
+
 ## Features 
 
 Open Accounts: adds Cards in the Cards section in your dashboard
